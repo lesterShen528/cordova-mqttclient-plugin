@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-mqtt" version="1.0.0">
+    <name>Device</name>
+    <description>Cordova Mqtt Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,Mqtt</keywords>
+    <js-module src="www/MqttPlugin.js" name="MqttPlugin">
+        <clobbers target="MqttPlugin" />
+    </js-module>
+     <!-- android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="MqttPlugin">
+				<param name="android-package" value="com.MqttPlugin.MqttPlugin"/>
+			</feature>
+		</config-file>
+		<source-file src="src/android/MqttPlugin.java" target-dir="src/com/MqttPlugin" />
+    </platform>
+</plugin>

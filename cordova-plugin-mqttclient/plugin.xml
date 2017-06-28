@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="cordova-plugin-mqttclient"
+      version="1.1.0">
+    <name>Mqttclient</name>
+    <description>Cordova Mqttclient Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,mqttclient</keywords>
+	<js-module src="www/mqttclient.js" name="mqttclient">
+        <clobbers target="mqttclient" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="Client">
+				<param name="android-package" value="org.apache.cordova.mqttclient.Client"/>
+			</feature>
+			<feature name="SslUtil">
+				<param name="android-package" value="org.apache.cordova.mqttclient.SslUtil"/>
+			</feature>
+			<feature name="MqttConnect">
+				<param name="android-package" value="org.apache.cordova.mqttclient.MqttConnect"/>
+			</feature>
+		</config-file>
+		<source-file src="src/Client.java" target-dir="src/org/apache/cordova/mqttclient" />
+		<source-file src="src/SslUtil.java" target-dir="src/org/apache/cordova/mqttclient" />
+		<source-file src="src/MqttConnect.java" target-dir="src/org/apache/cordova/mqttclient" />
+		<source-file src="src/lib/org.bouncycastle.jar" target-dir="libs" />
+		<source-file src="src/lib/org.eclipse.paho.client.mqttv3-1.0.2.jar" target-dir="libs" />	
+    </platform>
+</plugin>
